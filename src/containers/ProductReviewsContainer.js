@@ -6,13 +6,13 @@ import ProductReview from '../components/ProductReview';
 
 class ProductReviewsView extends Component {
     render() {
-        const { reviews } = this.props;
+        const { product: { data, loading } } = this.props;
 
         return (
             <Comment.Group>
                 <Header as='h3' dividing>Reviews</Header>
 
-                {reviews.map(review => (
+                {!loading && data.productReviews.map(review => (
                     <ProductReview key={review.id} />
                 ))}
 
@@ -24,21 +24,12 @@ class ProductReviewsView extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        reviews: state.productReviews
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onProductClick: (id) => {
-            // dispatch(show(id))
-        }
+        product: state.product
     };
 };
 
 const ProductReviewsContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
+    mapStateToProps
 )(ProductReviewsView);
 
 export default ProductReviewsContainer;

@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import productReviews from './productReviews';
+import product from './product';
 import products from './products';
 
 const productReviewsApp = combineReducers({
-    productReviews,
+    product,
     products
 });
 

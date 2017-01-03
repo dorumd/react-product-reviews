@@ -4,7 +4,6 @@ import { browserHistory } from 'react-router';
 
 class Product extends Component {
     handleClick = () => {
-        console.log(this.props.id);
         browserHistory.push('/' + this.props.id + '/reviews');
     };
 
